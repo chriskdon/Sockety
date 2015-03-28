@@ -1,0 +1,222 @@
+/**
+ * LESS Stylesheet for the application.
+ *
+ * Author: Chris Kellendonk (4810800)
+ * Date: 2013-12-02
+ */
+
+@width: 960px;
+@height: 500px;
+@titleHeight: 35px;
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.clear {
+	clear: both;
+}
+
+body, html {
+	height: 100%;
+	font-family: "Helvetica Nueue", sans-serif;
+}
+
+.content {
+	height: @height;
+	width: @width;
+	margin: 20px auto;
+}
+
+.panel {
+	@borderWidth: 1px;
+	@borderColor: black;
+
+	display: inline-block;
+	vertical-align: top;
+
+	height: 100%;
+
+	border: solid @borderColor;
+	border-width: @borderWidth @borderWidth @borderWidth 0;
+
+	&#room-list {
+		border-width: @borderWidth;
+		width: 25%;
+
+		.title {
+			background-color: lightcoral;
+		}
+
+		#rooms {
+			padding: 5px;
+			height: 430px;
+
+			.room {
+				border: 1px solid lightcoral;
+				border-radius: 2px;
+				margin-bottom: 5px;
+				padding: 5px;
+
+				cursor: pointer;
+
+				&:hover, &.current-room {
+					background-color: lightcoral;
+					color: white;
+				}
+			}
+		}
+
+		#add-room-box {
+			height: 33px;
+			border: solid black;
+			border-width: 1px 0 0 0;
+
+			input[type='text'] {
+				height: 100%;
+				width: 190px;
+				border-width: 0;
+				padding-left: 10px;
+
+				&:focus {
+					outline: none;
+				}
+			}
+
+			input[type='button'] {
+				height: 90%;
+				width: 40px;
+			}
+		}
+	}
+
+	&#chat-window {
+		width: 75%;
+
+		.title {
+			background-color: darkgray;
+		}
+
+		#chat-box {
+			height: (@height - (@height/6) - @titleHeight - @borderWidth*2);
+			border: solid black;
+			border-width: 0 0 1px 0;
+
+			overflow: scroll;
+
+			padding: 5px;
+		}
+
+		#send-message-box {
+			height: (@height/6);
+			background-color: #eee;
+
+			padding: 5px;
+
+			// Enter Text for message
+			#message-area {
+				float: left;
+				width: 80%;
+				height: 100%;
+
+				textarea {
+					resize: none;
+					width: 100%;
+					height: 100%;
+					padding: 5px;
+				}
+			}
+
+			// Send buttons for message
+			#message-buttons {
+				width: 15%;
+				height: 100%;
+				margin-left: 10px;
+				float: left;
+
+				input[type='button'] {
+					width: 80px;
+					height: 100%;
+				}
+			}
+		}
+	}
+
+	&#user-list {
+		width: 25%;
+
+		.title {
+			background-color: lightsalmon;
+		}
+	}
+
+	.title {
+		height: @titleHeight;
+		font-size: 20px;
+		font-weight: bold;
+		padding: 5px;
+		text-align: center;
+		border: solid @borderColor;
+		border-width: 0 0 @borderWidth 0;
+	}
+}
+
+input[type='button'], input[type='submit'] {
+	border: 1px solid grey;
+	background-color: lightgray;
+	font-weight: bold;
+
+	cursor: pointer;
+
+	&:hover {
+		background-color: darken(lightgray, 10%);
+	}
+}
+
+.message {
+	@borderColor: lightgray;
+	margin-bottom: 10px;
+	border: 1px solid @borderColor;
+	border-radius: 2px;
+	width: auto;
+
+	&.me {
+		.sender {
+			background-color: lightblue !important;
+		}
+
+		border-color: lightblue !important;
+	}
+
+	.sender {
+		padding: 2px 5px;
+		font-style: italic;
+		background-color: @borderColor;
+		color: white;
+	}
+
+	.text {
+		padding: 5px;
+		overflow: hidden;
+	}
+}
+
+.settings {
+	margin-top: 10px;
+
+	input {
+		height: 30px;
+		margin-bottom: 3px;
+	}
+
+	input[type='button'] {
+		width: 60px;
+	}
+
+	input[type='text'] {
+		font-size: 15px;
+		width: 240px;
+	}
+}

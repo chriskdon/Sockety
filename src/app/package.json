@@ -1,0 +1,11 @@
+{
+  "name": "NChat",
+  "description": "NodeJS Chat Application",
+  "author": "Chris Kellendonk <chriskellendonk@gmail.com>",
+  "version": "0.0.1",
+  "dependencies": {
+
+  },
+
+  "engine": "node >= 0.6.6"
+}
